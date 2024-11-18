@@ -53,7 +53,7 @@ tg.train(mode="clusters",num_epochs=500,device="cpu")
 #obtain loacation for each cell type
 adata_plot=tg.cell2location()
 adata_plot.obs.columns
-annotation_list=['aTEC_LOH_like','aTEC_DCT_like','aTEC_PT_like','aTEC_Mes','aTEC_PT_prolf','MDC','M2_Macro']
+annotation_list=['aTEC_PT_like','aTEC_Mes_like','aTEC_PT_prolf',]
 
 sc.pl.spatial(adata_plot, cmap='afmhot',
                   color=annotation_list,
@@ -66,7 +66,7 @@ sc.pl.spatial(adata_plot, cmap='afmhot',
 
 
 #obtain spatial expression profile for selective genes
-annotation_list=['SLC12A1','UMOD','PROM2','NPHS2','VCAM1','SERPINA1','ZEB2','VIM','AQP1', ]
+annotation_list=['SLC4A4','LRP2','NPHS2']
 
 sc.pl.spatial(adata_plot, cmap='afmhot',
                   # show first 8 cell types
@@ -114,7 +114,7 @@ tg.train(mode="clusters",num_epochs=500,device="cpu")
 #obtain loacation for each cell type
 adata_plot=tg.cell2location()
 adata_plot.obs.columns
-annotation_list=['aTEC_LOH_like','aTEC_DCT_like','aTEC_PT_like','aTEC_Mes','aTEC_PT_prolf','MDC','M2_Macro']
+annotation_list=['Progenitor_aTEC',]
 
 sc.pl.spatial(adata_plot, cmap='afmhot',
                   color=annotation_list,
@@ -127,7 +127,7 @@ sc.pl.spatial(adata_plot, cmap='afmhot',
 
 
 #obtain spatial expression profile for selective genes
-annotation_list=['SLC12A1','UMOD','PROM1','VCAM1','SERPINA1','ZEB2','VIM','AQP1','AQP3','ATP6V0D2', ]
+annotation_list=['SLC14A1','UMOD','SOX4','PAX2']
 
 sc.pl.spatial(adata_plot, cmap='afmhot',
                   # show first 8 cell types
