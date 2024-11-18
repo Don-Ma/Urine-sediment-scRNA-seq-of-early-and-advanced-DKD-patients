@@ -289,25 +289,20 @@ ov.utils.plot_cellproportion(adata=adata,celltype_clusters='major_celltype',
 
 
 
-#extract the aTEC cluster
-atec_adata=adata[adata.obs['major_celltype'].isin(['aTEC'])]
-atec_adata
+#extract the TEC cluster
+gene1 = 'OCIAD2'
+gene2 = 'CRYAB'
+gene3 = 'EPCAM'
+
+adata.obs['TEC'] = (adata.raw[:,'{}'.format(gene1)].X.todense() > 0) & (adata.raw[:,'{}'.format(gene2)].X.todense() > 0) & (adata.raw[:,'{}'.format(gene3)].X.todense() > 0)
 
 
 
-#visualization of aTEC cluster, colored by group							   
-ov.utils.embedding(atec_adata,
-                   basis='X_umap', #X_mde
-                   color=['group'], 
-                   legend_loc='right margin',frameon='small', legend_fontoutline=1, 
-                   palette=ov.utils.red_color,)
-
-
-
-#visualize expression of PAX2, DCDC2 & PROM1						   
-sc.pl.umap(atec_adata,color=['PAX2','DCDC2','PROM1'])
-
+#compute cell type ratio					   
+ov.utils.plot_cellproportion(adata=adata,celltype_clusters='TEC',
+                    visual_clusters='group',
+                    visual_name='group',figsize=(2,4))
 
 
 #save the adata as h5ad file
-atec_adata.write_h5ad('urine_aTEC_DKD.h5ad',compression='gzip')  
+atec_adata.write_h5ad('urine_TEC_DKD.h5ad',compression='gzip')  
