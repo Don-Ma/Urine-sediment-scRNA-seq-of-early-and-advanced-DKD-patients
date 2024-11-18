@@ -115,14 +115,32 @@ ov.utils.plot_ConvexHull(adata,
 
 
 
-#visualization expression of LRP2,UMOD,ATP6V0D2,PROM1,DCDC2,PAX2	
-sc.pl.umap(adata,color=['LRP2','UMOD','ATP6V0D2','PROM1','DCDC2','PAX2'])
+#prepare marker gene dictionary for different state
+tec=adata[adata.obs['major_celltype'].isin(['aTEC'])]
+res_marker_dict2={
+    'Progenitor':['SOX4','SOX9','PAX2','HES1',],
+    'Fibrosis':['MGP', 'BGN', 'FN1','ACTA2',],
+    'Degenerative':['APOE','CLU','S100A6','FTL',],
+    'Proliferative':['PTTG1','TOP2A','MKI67','CENPF'], 
+}
 
 
+# calculated the expression of marker genes in each cluster and the fraction	
+sc.tl.dendrogram(tec,'manual_annotations')
+sc.pl.dotplot(tec, res_marker_dict2, 'manual_annotations', 
+              dendrogram=False,standard_scale='var',cmap='Greens')
+
+# visualization
+ov.pl.embedding(tec,
+                basis='X_umap',
+                color=['manual_annotations'],palette=['#EAEFC5','#01A0A7','#75C8CC','#1F577B'],
+                frameon='small')
 
 
-
-
+# compute ratio
+ov.utils.plot_cellproportion(adata=tec,celltype_clusters='manual_annotations',
+                    visual_clusters='group',           
+                    visual_name='group',figsize=(2,6))
 
 
 
@@ -233,8 +251,32 @@ ov.utils.plot_ConvexHull(adata,
 
 
 
-#visualization expression of LRP2,UMOD,ATP6V0D2,PROM1,DCDC2,PAX2	
-sc.pl.umap(adata,color=['LRP2','UMOD','ATP6V0D2','PROM1','DCDC2','PAX2'])
+#prepare marker gene dictionary for different state
+tec=adata[adata.obs['major_celltype'].isin(['aTEC'])]
+res_marker_dict2={
+    'Progenitor':['SOX4','SOX9','PAX2','HES1'],
+    'Fibrosis':['MGP', 'BGN', 'FN1',],
+    'Degenerative':['APOE','CLU','S100A6','FTL'],
+    'Proliferative':['PTTG1','TOP2A','MKI67','CENPF'], 
+}
+
+
+# calculated the expression of marker genes in each cluster and the fraction	
+sc.tl.dendrogram(tec,'manual_annotations')
+sc.pl.dotplot(tec, res_marker_dict2, 'manual_annotations', 
+              dendrogram=False,standard_scale='var',cmap='Greens')
+
+# visualization
+ov.pl.embedding(tec,
+                basis='X_umap',
+                color=['manual_annotations'],palette=['#EAEFC5','#01A0A7','#75C8CC','#1F577B'],
+                frameon='small')
+
+
+# compute ratio
+ov.utils.plot_cellproportion(adata=tec,celltype_clusters='manual_annotations',
+                    visual_clusters='group',           
+                    visual_name='group',figsize=(2,6))
 
 
 
@@ -340,8 +382,32 @@ ov.utils.plot_ConvexHull(adata,
 
 
 
-#visualization expression of LRP2,UMOD,ATP6V0D2,PROM1,DCDC2,PAX2	
-sc.pl.umap(adata,color=['LRP2','UMOD','ATP6V0D2','PROM1','DCDC2','PAX2'])
+#prepare marker gene dictionary for different state
+tec=adata[adata.obs['major_celltype'].isin(['aTEC'])]
+res_marker_dict2={
+    'Progenitor':['SOX4','SOX9','PAX2','HES1'],
+    'Fibrosis':['MGP', 'BGN', 'FN1',],
+    'Degenerative':['APOE','CLU','S100A6','FTL'],
+    'Proliferative':['PTTG1','TOP2A','MKI67','CENPF'], 
+}
+
+
+# calculated the expression of marker genes in each cluster and the fraction	
+sc.tl.dendrogram(tec,'manual_annotations')
+sc.pl.dotplot(tec, res_marker_dict2, 'manual_annotations', 
+              dendrogram=False,standard_scale='var',cmap='Greens')
+
+# visualization
+ov.pl.embedding(tec,
+                basis='X_umap',
+                color=['manual_annotations'],palette=['#EAEFC5','#01A0A7','#75C8CC','#1F577B'],
+                frameon='small')
+
+
+# compute ratio
+ov.utils.plot_cellproportion(adata=tec,celltype_clusters='manual_annotations',
+                    visual_clusters='group',           
+                    visual_name='group',figsize=(2,6))
 
 
 
@@ -444,6 +510,29 @@ ov.utils.plot_ConvexHull(adata,
 
 
 
+#prepare marker gene dictionary for different state
+tec=adata[adata.obs['major_celltype'].isin(['aTEC'])]
+res_marker_dict2={
+    'Progenitor':['SOX4','SOX9','PAX2','HES1'],
+    'Fibrosis':['MGP', 'BGN', 'FN1','ACTA2',],
+    'Degenerative':['APOE','CLU','S100A6','FTL'],
+    'Proliferative':['PTTG1','TOP2A','MKI67','CENPF'], 
+}
 
-#visualization expression of LRP2,UMOD,ATP6V0D2,PROM1,DCDC2,PAX2	
-sc.pl.umap(adata,color=['LRP2','UMOD','ATP6V0D2','PROM1','DCDC2','PAX2'])
+
+# calculated the expression of marker genes in each cluster and the fraction	
+sc.tl.dendrogram(tec,'manual_annotations')
+sc.pl.dotplot(tec, res_marker_dict2, 'manual_annotations', 
+              dendrogram=False,standard_scale='var',cmap='Greens')
+
+# visualization
+ov.pl.embedding(tec,
+                basis='X_umap',
+                color=['manual_annotations'],palette=['#EAEFC5','#01A0A7','#75C8CC','#1F577B'],
+                frameon='small')
+
+
+# compute ratio
+ov.utils.plot_cellproportion(adata=tec,celltype_clusters='manual_annotations',
+                    visual_clusters='group',           
+                    visual_name='group',figsize=(2,6))
