@@ -302,7 +302,3 @@ adata.obs['TEC'] = (adata.raw[:,'{}'.format(gene1)].X.todense() > 0) & (adata.ra
 ov.utils.plot_cellproportion(adata=adata,celltype_clusters='TEC',
                     visual_clusters='group',
                     visual_name='group',figsize=(2,4))
-
-
-#save the adata as h5ad file
-atec_adata.write_h5ad('urine_TEC_DKD.h5ad',compression='gzip')  
