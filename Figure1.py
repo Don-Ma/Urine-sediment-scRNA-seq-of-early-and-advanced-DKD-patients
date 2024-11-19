@@ -41,7 +41,7 @@ adata2
 
 #import control data downloaded under GEO accession: GSE157640 by Abedini A et al 2019, JASN
 adata3 = sc.read_10x_mtx( 
-    '/dell_1/mdz/aa_21/star/ctrl/outs/filtered_feature_bc_matrix/',  # the directory with the `.mtx` file /dell_1/mdz/wilson_19/starsolo/ely_dkd/outs/filtered_feature_bc_matrix/
+    '/ctrl/filtered_feature_bc_matrix/',  # the directory with the `.mtx` file 
     var_names='gene_symbols',                # use gene symbols for the variable names (variables-axis index)
     cache=True)                              # write a cache file for faster subsequent reading
 
@@ -176,7 +176,7 @@ from matplotlib import patheffects
 fig, ax = plt.subplots(figsize=(5,5),)
 ov.utils.embedding(adata_harmony,
                    basis='X_umap', #X_mde
-                   color=['leiden'],  #,'scsa_celltype_cellmarker'
+                   color=['leiden'],  
                     legend_loc=None, 
                    legend_fontoutline=1,
                    show=False,
